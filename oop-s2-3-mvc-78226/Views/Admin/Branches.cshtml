@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<oop_s2_3_mvc_78226.Models.Branch>
+
+@{
+    ViewData["Title"] = "Branches";
+}
+
+<h2>Branches</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var branch in Model)
+        {
+            <tr>
+                <td>@branch.Name</td>
+                <td>@branch.Address</td>
+            </tr>
+        }
+    </tbody>
+</table>

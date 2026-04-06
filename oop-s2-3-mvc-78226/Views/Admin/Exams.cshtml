@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<oop_s2_3_mvc_78226.Models.Exam>
+
+@{
+    ViewData["Title"] = "Exams";
+}
+
+<h2>Exams</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Course</th>
+            <th>Date</th>
+            <th>Max Score</th>
+            <th>Results Released</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var exam in Model)
+        {
+            <tr>
+                <td>@exam.Title</td>
+                <td>@exam.Course.Name</td>
+                <td>@exam.Date.ToShortDateString()</td>
+                <td>@exam.MaxScore</td>
+                <td>@(exam.ResultsReleased ? "Yes" : "No")</td>
+                <td>
+                    @if (!exam.ResultsReleased)
+                    {
+                        <a href="/Admin/ReleaseResults/@exam.Id" class="btn btn-sm btn-primary">Release Results</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

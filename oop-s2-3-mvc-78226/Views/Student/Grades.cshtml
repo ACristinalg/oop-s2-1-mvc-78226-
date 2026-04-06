@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<oop_s2_3_mvc_78226.Models.AssignmentResult>
+
+@{
+    ViewData["Title"] = "My Grades";
+}
+
+<h2>My Grades</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Assignment</th>
+            <th>Score</th>
+            <th>Max Score</th>
+            <th>Feedback</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var result in Model)
+        {
+            <tr>
+                <td>@result.Assignment.Title</td>
+                <td>@result.Score</td>
+                <td>@result.Assignment.MaxScore</td>
+                <td>@result.Feedback</td>
+            </tr>
+        }
+    </tbody>
+</table>

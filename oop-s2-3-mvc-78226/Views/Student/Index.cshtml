@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model oop_s2_3_mvc_78226.Models.StudentProfile
+
+@{
+    ViewData["Title"] = "My Profile";
+}
+
+<h2>My Profile</h2>
+
+<dl class="row">
+    <dt class="col-sm-3">Name</dt>
+    <dd class="col-sm-9">@Model.Name</dd>
+
+    <dt class="col-sm-3">Email</dt>
+    <dd class="col-sm-9">@Model.Email</dd>
+
+    <dt class="col-sm-3">Phone</dt>
+    <dd class="col-sm-9">@Model.Phone</dd>
+
+    <dt class="col-sm-3">Address</dt>
+    <dd class="col-sm-9">@Model.Address</dd>
+
+    <dt class="col-sm-3">Student Number</dt>
+    <dd class="col-sm-9">@Model.StudentNumber</dd>
+</dl>
+
+<a href="/Student/Enrolments" class="btn btn-primary">My Enrolments</a>
+<a href="/Student/Grades" class="btn btn-secondary">My Grades</a>
+<a href="/Student/ExamResults" class="btn btn-secondary">My Exam Results</a>
+<a href="/Student/Attendance" class="btn btn-secondary">My Attendance</a>

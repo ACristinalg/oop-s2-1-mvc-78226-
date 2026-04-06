@@ -19,13 +19,53 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/Branches">Branches</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/Courses">Courses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/Students">Students</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/Faculty">Faculty</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/Enrolments">Enrolments</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/Exams">Exams</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Faculty"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Faculty">My Courses</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Student"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Student">My Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Student/Enrolments">My Enrolments</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Student/Grades">My Grades</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Student/ExamResults">Exam Results</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Student/Attendance">Attendance</a>
+                            </li>
+                        }
                     </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
