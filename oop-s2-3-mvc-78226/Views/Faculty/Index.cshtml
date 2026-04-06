@@ -22,8 +22,8 @@
             <tr>
                 <td>@assignment.Course.Name</td>
                 <td>
-                    <a href="/Faculty/Students/@assignment.CourseId" class="btn btn-sm btn-primary">Students</a>
-                    <a href="/Faculty/Gradebook/@assignment.CourseId" class="btn btn-sm btn-secondary">Gradebook</a>
+                    <a asp-controller="Faculty" asp-action="Students" asp-route-courseId="@assignment.CourseId" class="btn btn-sm btn-primary">Students</a>
+                    <a asp-controller="Faculty" asp-action="Gradebook" asp-route-courseId="@assignment.CourseId" class="btn btn-sm btn-secondary">Gradebook</a>
                 </td>
             </tr>
         }

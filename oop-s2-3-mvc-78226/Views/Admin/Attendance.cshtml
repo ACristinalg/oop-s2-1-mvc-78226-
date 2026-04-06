@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<oop_s2_3_mvc_78226.Models.AttendanceRecord>
+
+@{
+    ViewData["Title"] = "Attendance";
+}
+
+<h2>Attendance</h2>
+
+<a href="/Admin/CreateAttendance" class="btn btn-primary mb-3">Add Attendance</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Course</th>
+            <th>Week</th>
+            <th>Date</th>
+            <th>Present</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var record in Model)
+        {
+            <tr>
+                <td>@record.CourseEnrolment.StudentProfile.Name</td>
+                <td>@record.CourseEnrolment.Course.Name</td>
+                <td>@record.WeekNumber</td>
+                <td>@record.Date.ToShortDateString()</td>
+                <td>@(record.Present ? "✅" : "❌")</td>
+            </tr>
+        }
+    </tbody>
+</table>

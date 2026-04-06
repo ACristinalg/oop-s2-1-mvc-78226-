@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model oop_s2_3_mvc_78226.Models.CourseEnrolment
+
+@{
+    ViewData["Title"] = "Enrol Student";
+}
+
+<h2>Enrol Student</h2>
+
+<form asp-action="CreateEnrolment" method="post">
+    <div class="mb-3">
+        <label>Student</label>
+        <select asp-for="StudentProfileId" class="form-control">
+            @foreach (var s in ViewBag.Students)
+            {
+                <option value="@s.Id">@s.Name</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Course</label>
+        <select asp-for="CourseId" class="form-control">
+            @foreach (var c in ViewBag.Courses)
+            {
+                <option value="@c.Id">@c.Name</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Status</label>
+        <input asp-for="Status" class="form-control" value="Active" />
+    </div>
+    <button type="submit" class="btn btn-primary">Enrol</button>
+    <a href="/Admin/Enrolments" class="btn btn-secondary">Cancel</a>
+</form>

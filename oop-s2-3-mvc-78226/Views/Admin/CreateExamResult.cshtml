@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model oop_s2_3_mvc_78226.Models.ExamResult
+
+@{
+    ViewData["Title"] = "Add Exam Result";
+}
+
+<h2>Add Exam Result</h2>
+
+<form asp-action="CreateExamResult" method="post">
+    <div class="mb-3">
+        <label>Student</label>
+        <select asp-for="StudentProfileId" class="form-control">
+            @foreach (var s in ViewBag.Students)
+            {
+                <option value="@s.Id">@s.Name</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Exam</label>
+        <select asp-for="ExamId" class="form-control">
+            @foreach (var e in ViewBag.Exams)
+            {
+                <option value="@e.Id">@e.Title (@e.Course.Name)</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Score</label>
+        <input asp-for="Score" type="number" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Grade</label>
+        <input asp-for="Grade" class="form-control" placeholder="A, B, C, D, F" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="/Admin/ExamResults" class="btn btn-secondary">Cancel</a>
+</form>
